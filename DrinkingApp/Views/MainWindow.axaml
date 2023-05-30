@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DrinkingApp"
+        x:Class="DrinkingApp.Views.MainWindow"
+        Title="DrinkingApp">
+    <DockPanel>
+        <ScrollViewer DockPanel.Dock="Top">
+            <StackPanel>
+                <ItemsControl Items="{Binding Ingredients}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+		<ListBox Items="{Binding AvailableDrinks}" SelectedItem="{Binding SelectedDrink}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Name}" />
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<TextBlock Text="{Binding SelectedDrink.Description}" />
+
+	</DockPanel>
+</Window>
