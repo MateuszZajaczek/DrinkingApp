@@ -1,10 +1,13 @@
 ﻿using Avalonia;
 using ReactiveUI;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Reactive;
+using Avalonia.Platform;
+using Avalonia.Media.Imaging;
 
 namespace DrinkingApp.ViewModels
 {
@@ -27,17 +30,18 @@ namespace DrinkingApp.ViewModels
         {
             ShowIngredientsCommand = ReactiveCommand.Create(() => ShowIngredients = !ShowIngredients);
 
+            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
 
             Ingredients = new ObservableCollection<Ingredient>
     {
-        new Ingredient { Name = "Vodka", ImagePath = "avares://DrinkingApp/Assets/drink.png" },
+        new Ingredient { Name = "Vodka", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Wyborowa.jpg"))) },
         new Ingredient { Name = "Rum" },
         new Ingredient { Name = "Mint" },
         new Ingredient { Name = "Sugar" },
-        new Ingredient { Name = "Lime juice" },
+        new Ingredient { Name = "Lime juice", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Limonka.png")))},
         new Ingredient { Name = "Soda water" },
         new Ingredient { Name = "Tomato juice" },
-        new Ingredient { Name = "Lemon juice" },
+        new Ingredient { Name = "Lemon juice", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Cytryna.png"))) },
         new Ingredient { Name = "Worcestershire sauce"},
         new Ingredient { Name = "Tabasco"},
         // Add more ingredients...

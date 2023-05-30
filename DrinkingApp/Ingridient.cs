@@ -1,4 +1,5 @@
-﻿using ReactiveUI;
+﻿using Avalonia.Media.Imaging;
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,13 +13,26 @@ namespace DrinkingApp
     public class Ingredient : INotifyPropertyChanged
     {
         private bool _isChecked;
+        private string _name;
+        private string _imagePath;
 
-        public string Name { get; set; }
-        public string ImagePath { get; set; }
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public IBitmap Image { get; set; }
+
+
 
         public bool IsChecked
         {
-            get => _isChecked;
+            get { return _isChecked; }
             set
             {
                 _isChecked = value;
@@ -34,5 +48,6 @@ namespace DrinkingApp
         }
     }
 
-    
+
+
 }

@@ -28,14 +28,14 @@
 							<ItemsControl Items="{Binding Ingredients}">
 								<ItemsControl.ItemTemplate>
 									<DataTemplate>
-										<StackPanel>
-											<Image Source="{Binding ImagePath}"  Width="50" Height="50"/>
+										<StackPanel Orientation="Horizontal">
+											<Image Source="{Binding Image}" Width="50" Height="50"/>
 											<CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked, Mode=TwoWay}"/>
 										</StackPanel>
-										
 									</DataTemplate>
 								</ItemsControl.ItemTemplate>
 							</ItemsControl>
+
 						</StackPanel>
 					</ScrollViewer>
 					<ListBox Items="{Binding AvailableDrinks}" SelectedItem="{Binding SelectedDrink}">
