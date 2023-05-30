@@ -12,6 +12,8 @@
           "Avalonia.Desktop": "0.10.18",
           "Avalonia.Diagnostics": "0.10.18",
           "Avalonia.ReactiveUI": "0.10.18",
+          "Avalonia.Svg.Skia": "0.10.18",
+          "ReactiveUI": "18.4.44",
           "XamlNameReferenceGenerator": "1.6.1"
         },
         "runtime": {
@@ -23,7 +25,7 @@
           "Avalonia.Remote.Protocol": "0.10.18",
           "JetBrains.Annotations": "10.3.0",
           "System.ComponentModel.Annotations": "4.5.0",
-          "System.Memory": "4.5.3",
+          "System.Memory": "4.5.4",
           "System.Reactive": "5.0.0",
           "System.Runtime.CompilerServices.Unsafe": "4.6.0",
           "System.ValueTuple": "4.5.0"
@@ -198,7 +200,7 @@
       "Avalonia.ReactiveUI/0.10.18": {
         "dependencies": {
           "Avalonia": "0.10.18",
-          "ReactiveUI": "13.2.10",
+          "ReactiveUI": "18.4.44",
           "System.Reactive": "5.0.0"
         },
         "runtime": {
@@ -233,6 +235,20 @@
           }
         }
       },
+      "Avalonia.Svg.Skia/0.10.18": {
+        "dependencies": {
+          "Avalonia": "0.10.18",
+          "Avalonia.Skia": "0.10.18",
+          "SkiaSharp": "2.88.1-preview.108",
+          "Svg.Skia": "0.5.18"
+        },
+        "runtime": {
+          "lib/net6.0/Avalonia.Svg.Skia.dll": {
+            "assemblyVersion": "0.10.18.0",
+            "fileVersion": "0.10.18.0"
+          }
+        }
+      },
       "Avalonia.Win32/0.10.18": {
         "dependencies": {
           "Avalonia": "0.10.18",
@@ -260,14 +276,30 @@
           }
         }
       },
-      "DynamicData/7.1.1": {
+      "DynamicData/7.13.5": {
         "dependencies": {
           "System.Reactive": "5.0.0"
         },
         "runtime": {
-          "lib/net5.0/DynamicData.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.1.11487"
+          "lib/net7.0/DynamicData.dll": {
+            "assemblyVersion": "7.13.0.0",
+            "fileVersion": "7.13.5.53706"
+          }
+        }
+      },
+      "ExCSS/4.1.4": {
+        "runtime": {
+          "lib/net6.0/ExCSS.dll": {
+            "assemblyVersion": "4.1.4.0",
+            "fileVersion": "4.1.4.0"
+          }
+        }
+      },
+      "Fizzler/1.2.1": {
+        "runtime": {
+          "lib/netstandard2.0/Fizzler.dll": {
+            "assemblyVersion": "1.2.1.0",
+            "fileVersion": "1.2.1.0"
           }
         }
       },
@@ -355,7 +387,7 @@
         "dependencies": {
           "Microsoft.CodeAnalysis.Analyzers": "2.9.6",
           "System.Collections.Immutable": "1.5.0",
-          "System.Memory": "4.5.3",
+          "System.Memory": "4.5.4",
           "System.Reflection.Metadata": "1.6.0",
           "System.Runtime.CompilerServices.Unsafe": "4.6.0",
           "System.Text.Encoding.CodePages": "4.5.1",
@@ -609,17 +641,23 @@
           }
         }
       },
-      "ReactiveUI/13.2.10": {
+      "ReactiveUI/18.4.44": {
         "dependencies": {
-          "DynamicData": "7.1.1",
-          "Splat": "10.0.1",
-          "System.Reactive": "5.0.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
+          "DynamicData": "7.13.5",
+          "Splat": "14.6.8"
         },
         "runtime": {
-          "lib/net5.0/ReactiveUI.dll": {
-            "assemblyVersion": "13.2.0.0",
-            "fileVersion": "13.2.10.47474"
+          "lib/net7.0/ReactiveUI.dll": {
+            "assemblyVersion": "18.4.0.0",
+            "fileVersion": "18.4.44.1605"
+          }
+        }
+      },
+      "ShimSkiaSharp/0.5.18": {
+        "runtime": {
+          "lib/net6.0/ShimSkiaSharp.dll": {
+            "assemblyVersion": "0.5.18.0",
+            "fileVersion": "0.5.18.0"
           }
         }
       },
@@ -630,6 +668,18 @@
         },
         "runtime": {
           "lib/net6.0/SkiaSharp.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.1.0"
+          }
+        }
+      },
+      "SkiaSharp.HarfBuzz/2.88.1-preview.108": {
+        "dependencies": {
+          "HarfBuzzSharp": "2.8.2.1-preview.108",
+          "SkiaSharp": "2.88.1-preview.108"
+        },
+        "runtime": {
+          "lib/net6.0/SkiaSharp.HarfBuzz.dll": {
             "assemblyVersion": "2.88.0.0",
             "fileVersion": "2.88.1.0"
           }
@@ -691,11 +741,52 @@
           }
         }
       },
-      "Splat/10.0.1": {
+      "Splat/14.6.8": {
         "runtime": {
-          "lib/net5.0/Splat.dll": {
-            "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1.9728"
+          "lib/net7.0/Splat.dll": {
+            "assemblyVersion": "14.6.0.0",
+            "fileVersion": "14.6.8.29002"
+          }
+        }
+      },
+      "Svg.Custom/0.5.18": {
+        "dependencies": {
+          "ExCSS": "4.1.4",
+          "Fizzler": "1.2.1",
+          "System.Memory": "4.5.4",
+          "System.ObjectModel": "4.3.0",
+          "System.ValueTuple": "4.5.0"
+        },
+        "runtime": {
+          "lib/net6.0/Svg.Custom.dll": {
+            "assemblyVersion": "0.5.18.0",
+            "fileVersion": "0.5.18.0"
+          }
+        }
+      },
+      "Svg.Model/0.5.18": {
+        "dependencies": {
+          "ShimSkiaSharp": "0.5.18",
+          "Svg.Custom": "0.5.18"
+        },
+        "runtime": {
+          "lib/net6.0/Svg.Model.dll": {
+            "assemblyVersion": "0.5.18.0",
+            "fileVersion": "0.5.18.0"
+          }
+        }
+      },
+      "Svg.Skia/0.5.18": {
+        "dependencies": {
+          "SkiaSharp": "2.88.1-preview.108",
+          "SkiaSharp.HarfBuzz": "2.88.1-preview.108",
+          "Svg.Custom": "0.5.18",
+          "Svg.Model": "0.5.18"
+        },
+        "runtime": {
+          "lib/net6.0/Svg.Skia.dll": {
+            "assemblyVersion": "0.5.18.0",
+            "fileVersion": "0.5.18.0"
           }
         }
       },
@@ -805,7 +896,7 @@
           "System.Threading": "4.3.0"
         }
       },
-      "System.Memory/4.5.3": {},
+      "System.Memory/4.5.4": {},
       "System.Numerics.Vectors/4.5.0": {},
       "System.ObjectModel/4.3.0": {
         "dependencies": {
@@ -909,12 +1000,6 @@
           "System.Reflection.Primitives": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Handles": "4.3.0"
-        }
-      },
-      "System.Runtime.Serialization.Primitives/4.3.0": {
-        "dependencies": {
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
         }
       },
       "System.Security.Principal.Windows/4.7.0": {},
@@ -1037,6 +1122,13 @@
       "path": "avalonia.skia/0.10.18",
       "hashPath": "avalonia.skia.0.10.18.nupkg.sha512"
     },
+    "Avalonia.Svg.Skia/0.10.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h53wBk5UJQFfKBeGUdCRscObb28m82axaLfxnpHd+T67L5v1N4sJDAqbXlC6xjavfHKkW6J9w9QV4wGICv+zug==",
+      "path": "avalonia.svg.skia/0.10.18",
+      "hashPath": "avalonia.svg.skia.0.10.18.nupkg.sha512"
+    },
     "Avalonia.Win32/0.10.18": {
       "type": "package",
       "serviceable": true,
@@ -1051,12 +1143,26 @@
       "path": "avalonia.x11/0.10.18",
       "hashPath": "avalonia.x11.0.10.18.nupkg.sha512"
     },
-    "DynamicData/7.1.1": {
+    "DynamicData/7.13.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Pc6J5bFnSxEa64PV2V67FMcLlDdpv6m+zTBKSnRN3aLon/WtWWy8kuDpHFbJlgXHtqc6Nxloj9ItuvDlvKC/8w==",
-      "path": "dynamicdata/7.1.1",
-      "hashPath": "dynamicdata.7.1.1.nupkg.sha512"
+      "sha512": "sha512-jpu26ujgGrMSO68t8b6ClEL3tvZy6K7np8Iem30JkQaLMeOCLxLCZ2Uk/Eyq67k/rwEWrraQ3FB5SBEKJaE2iw==",
+      "path": "dynamicdata/7.13.5",
+      "hashPath": "dynamicdata.7.13.5.nupkg.sha512"
+    },
+    "ExCSS/4.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6eMFdIazPCVfr9Gios0nCUYq3/02SewnDGvS+aCi/RWaAtoETz2fNT+H//+k0vjoDJBHXkWdVG8EkxUydxtyxA==",
+      "path": "excss/4.1.4",
+      "hashPath": "excss.4.1.4.nupkg.sha512"
+    },
+    "Fizzler/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nSudK8LeKSu7T/N/6NVZNjUniMYagfzVo8yT2XwZ9BOVbWYQH3EQ8oviuztJ7AfO8PlRDsYIWboZuzIg94hhzQ==",
+      "path": "fizzler/1.2.1",
+      "hashPath": "fizzler.1.2.1.nupkg.sha512"
     },
     "HarfBuzzSharp/2.8.2.1-preview.108": {
       "type": "package",
@@ -1163,12 +1269,19 @@
       "path": "microsoft.win32.systemevents/4.5.0",
       "hashPath": "microsoft.win32.systemevents.4.5.0.nupkg.sha512"
     },
-    "ReactiveUI/13.2.10": {
+    "ReactiveUI/18.4.44": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fOCbEZ+RsO2Jhv6vB8VX+ZEvczYJaC95atcSG7oXohJeL/sEwbbqvv9k+tbj2l4bRSj2j5CQvhwA3HNLaxlCAg==",
-      "path": "reactiveui/13.2.10",
-      "hashPath": "reactiveui.13.2.10.nupkg.sha512"
+      "sha512": "sha512-DRtnK85MBdtwG+zjTluLWVnbUPzDOoHOFuIy6B4OAwvWNCkkRpf7FIHVwZz7cTjlG25eBeIJqWjgaejP6ejCHg==",
+      "path": "reactiveui/18.4.44",
+      "hashPath": "reactiveui.18.4.44.nupkg.sha512"
+    },
+    "ShimSkiaSharp/0.5.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FbpUe65+jkHHACyUm1Pi7m1lX1fQ0yyo3E0pyQF7ITAGnh/z5ZKRl2e56SHNZxdqpwFVt/MkJekJ4rScRYvXJg==",
+      "path": "shimskiasharp/0.5.18",
+      "hashPath": "shimskiasharp.0.5.18.nupkg.sha512"
     },
     "SkiaSharp/2.88.1-preview.108": {
       "type": "package",
@@ -1176,6 +1289,13 @@
       "sha512": "sha512-Zfs4qdQuvLsdSdBa42CnD8Dlcnkr46GaaFEwouzrjOLse8DmKkf/zBaCFCUkNIjGDZFkjFGe/ai5qHYkMcXIsg==",
       "path": "skiasharp/2.88.1-preview.108",
       "hashPath": "skiasharp.2.88.1-preview.108.nupkg.sha512"
+    },
+    "SkiaSharp.HarfBuzz/2.88.1-preview.108": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-O/Fa+9g+XoJTVKjCxQnXzWA/H8Og0A6hajK+ISuhrEHwAqvK4jtH+1/AatCmiqjmMiJdISMk7b3HPER2LCxb4A==",
+      "path": "skiasharp.harfbuzz/2.88.1-preview.108",
+      "hashPath": "skiasharp.harfbuzz.2.88.1-preview.108.nupkg.sha512"
     },
     "SkiaSharp.NativeAssets.Linux/2.88.1-preview.108": {
       "type": "package",
@@ -1205,12 +1325,33 @@
       "path": "skiasharp.nativeassets.win32/2.88.1-preview.108",
       "hashPath": "skiasharp.nativeassets.win32.2.88.1-preview.108.nupkg.sha512"
     },
-    "Splat/10.0.1": {
+    "Splat/14.6.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-N8BMGVuUBnVLAHSVbna/st8XiLd8ulF3BfkKUSGCPqYpDCis3ELvM+aFaZQLBUIBEcweCYVLq3HFEBqHkCKFyA==",
-      "path": "splat/10.0.1",
-      "hashPath": "splat.10.0.1.nupkg.sha512"
+      "sha512": "sha512-WdhGXUvsWPNPzBLc/LC1Q5jLOczupHDc+4Skl0JaTEuyoDjxxe/Dme8UjGTkCPYbhnVWEsEJprWqyWDY5RNB9A==",
+      "path": "splat/14.6.8",
+      "hashPath": "splat.14.6.8.nupkg.sha512"
+    },
+    "Svg.Custom/0.5.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NJOTwyau7cXHmS4erwaoscvTzi34gd3BIXF8eYZuRjH1Bx2F0FVww7W2/9mM98ZFjatYtk2RuSiaaEM/Mv53sw==",
+      "path": "svg.custom/0.5.18",
+      "hashPath": "svg.custom.0.5.18.nupkg.sha512"
+    },
+    "Svg.Model/0.5.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zBuA3t3onN1dppNEsphc1PZfdwBaHizwtU7CFYYl3At5jufjWGACwuwG5//2ny3RbZzYoR8zqZszxkiz3Z/2lQ==",
+      "path": "svg.model/0.5.18",
+      "hashPath": "svg.model.0.5.18.nupkg.sha512"
+    },
+    "Svg.Skia/0.5.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rBj/M7CDjuw46YIR8pDRUcqRRXDTtVG4I/8ymI/12+ozcAfoVOMhTHdiTnxQvvXUnAPUsFsfq4xRRDuAu3/oHA==",
+      "path": "svg.skia/0.5.18",
+      "hashPath": "svg.skia.0.5.18.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",
@@ -1282,12 +1423,12 @@
       "path": "system.linq.expressions/4.3.0",
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
     },
-    "System.Memory/4.5.3": {
+    "System.Memory/4.5.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
-      "path": "system.memory/4.5.3",
-      "hashPath": "system.memory.4.5.3.nupkg.sha512"
+      "sha512": "sha512-1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
+      "path": "system.memory/4.5.4",
+      "hashPath": "system.memory.4.5.4.nupkg.sha512"
     },
     "System.Numerics.Vectors/4.5.0": {
       "type": "package",
@@ -1407,13 +1548,6 @@
       "sha512": "sha512-uv1ynXqiMK8mp1GM3jDqPCFN66eJ5w5XNomaK2XD+TuCroNTLFGeZ+WCmBMcBDyTFKou3P6cR6J/QsaqDp7fGQ==",
       "path": "system.runtime.interopservices/4.3.0",
       "hashPath": "system.runtime.interopservices.4.3.0.nupkg.sha512"
-    },
-    "System.Runtime.Serialization.Primitives/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
-      "path": "system.runtime.serialization.primitives/4.3.0",
-      "hashPath": "system.runtime.serialization.primitives.4.3.0.nupkg.sha512"
     },
     "System.Security.Principal.Windows/4.7.0": {
       "type": "package",

@@ -3,27 +3,57 @@
         xmlns:local="clr-namespace:DrinkingApp"
         x:Class="DrinkingApp.Views.MainWindow"
         Title="DrinkingApp">
-    <DockPanel>
-        <ScrollViewer DockPanel.Dock="Top">
-            <StackPanel>
-                <ItemsControl Items="{Binding Ingredients}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked, Mode=TwoWay}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
-        </ScrollViewer>
-		<ListBox Items="{Binding AvailableDrinks}" SelectedItem="{Binding SelectedDrink}">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<TextBlock Text="{Binding Name}" />
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
 
-		<TextBlock Text="{Binding SelectedDrink.Description}" />
+	<Grid RowDefinitions="Auto, *, 0.04*">
+		<!--Title bar-->
+		<Grid Grid.Row="0" Background="#2b4141" Height="50" ColumnDefinitions="Auto, *, Auto">
+			<!-- ... -->
+		</Grid>
 
-	</DockPanel>
+		<!--Main section-->
+		<Grid Grid.Row="1" ColumnDefinitions="Auto, *">
+
+			<!--Menu on left -->
+			<StackPanel Grid.Column="0" Background="Gray" HorizontalAlignment="Left">
+				<Button Command="{Binding ShowIngredientsCommand}">
+					<Image Source="C:\Users\Mateusz\Desktop\Github\DrinkBook\DrinkBook\Assets\Book.png" Height="50" VerticalAlignment="Top" Width="60"/>
+				</Button>
+			</StackPanel>
+
+			<!-- Main content Window-->
+			<StackPanel Grid.Column="1" Background="#8a919e">
+				<DockPanel x:Name="MainContent" IsVisible="{Binding ShowIngredients}">
+					<ScrollViewer DockPanel.Dock="Top">
+						<StackPanel>
+							<ItemsControl Items="{Binding Ingredients}">
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Image Source="{Binding ImagePath}"  Width="50" Height="50"/>
+											<CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked, Mode=TwoWay}"/>
+										</StackPanel>
+										
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+						</StackPanel>
+					</ScrollViewer>
+					<ListBox Items="{Binding AvailableDrinks}" SelectedItem="{Binding SelectedDrink}">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding Name}" />
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+
+					<TextBlock Text="{Binding SelectedDrink.Description}" />
+				</DockPanel>
+			</StackPanel>
+		</Grid>
+
+		<!--Bottom-->
+		<Grid Grid.Row="2" Background="Black">
+			<!-- ... -->
+		</Grid>
+	</Grid>
 </Window>

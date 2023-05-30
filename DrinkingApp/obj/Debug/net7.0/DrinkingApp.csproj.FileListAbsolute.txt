@@ -131,3 +131,11 @@ C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\obj\De
 C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\obj\Debug\net7.0\DrinkingApp.pdb
 C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\obj\Debug\net7.0\DrinkingApp.genruntimeconfig.cache
 C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\obj\Debug\net7.0\ref\DrinkingApp.dll
+C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\bin\Debug\net7.0\Avalonia.Svg.Skia.dll
+C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\bin\Debug\net7.0\ExCSS.dll
+C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\bin\Debug\net7.0\Fizzler.dll
+C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\bin\Debug\net7.0\ShimSkiaSharp.dll
+C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\bin\Debug\net7.0\SkiaSharp.HarfBuzz.dll
+C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\bin\Debug\net7.0\Svg.Custom.dll
+C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\bin\Debug\net7.0\Svg.Model.dll
+C:\Users\Mateusz\Desktop\Github\DrinkBook updates\DrinkingApp\DrinkingApp\bin\Debug\net7.0\Svg.Skia.dll

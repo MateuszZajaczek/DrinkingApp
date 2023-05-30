@@ -3,6 +3,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using DrinkingApp.ViewModels;
+using ReactiveUI;
 
 namespace DrinkingApp.Views
 {
@@ -21,6 +22,7 @@ namespace DrinkingApp.Views
         {
             AvaloniaXamlLoader.Load(this);
         }
+
     }
 
 }

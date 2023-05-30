@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReactiveUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace DrinkingApp
         private bool _isChecked;
 
         public string Name { get; set; }
+        public string ImagePath { get; set; }
 
         public bool IsChecked
         {
@@ -31,4 +33,6 @@ namespace DrinkingApp
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+
+    
 }

@@ -61,6 +61,14 @@
               "target": "Package",
               "version": "[0.10.18, )"
             },
+            "Avalonia.Svg.Skia": {
+              "target": "Package",
+              "version": "[0.10.18, )"
+            },
+            "ReactiveUI": {
+              "target": "Package",
+              "version": "[18.4.44, )"
+            },
             "XamlNameReferenceGenerator": {
               "target": "Package",
               "version": "[1.6.1, )"

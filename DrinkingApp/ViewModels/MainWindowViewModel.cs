@@ -4,30 +4,44 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Reactive;
 
 namespace DrinkingApp.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ReactiveObject
     {
         public ObservableCollection<Ingredient> Ingredients { get; }
         public ObservableCollection<Drink> AvailableDrinks { get; }
+        private bool _showIngredients;
+
+        public bool ShowIngredients
+        {
+            get { return _showIngredients; }
+            set { this.RaiseAndSetIfChanged(ref _showIngredients, value); }
+        }
+
+        public ReactiveCommand<Unit, bool> ShowIngredientsCommand { get; }
+
 
         public MainWindowViewModel()
         {
+            ShowIngredientsCommand = ReactiveCommand.Create(() => ShowIngredients = !ShowIngredients);
+
+
             Ingredients = new ObservableCollection<Ingredient>
-        {
-            new Ingredient { Name = "Vodka" },
-            new Ingredient { Name = "Rum" },
-            new Ingredient { Name = "Mint" },
-            new Ingredient { Name = "Sugar" },
-            new Ingredient { Name = "Lime juice" },
-            new Ingredient { Name = "Soda water" },
-            new Ingredient { Name = "Tomato juice" },
-            new Ingredient { Name = "Lemon juice" },
-            new Ingredient { Name = "Worcestershire sauce"},
-            new Ingredient { Name = "Tabasco"},
-            // Add more ingredients...
-        };
+    {
+        new Ingredient { Name = "Vodka", ImagePath = "avares://DrinkingApp/Assets/drink.png" },
+        new Ingredient { Name = "Rum" },
+        new Ingredient { Name = "Mint" },
+        new Ingredient { Name = "Sugar" },
+        new Ingredient { Name = "Lime juice" },
+        new Ingredient { Name = "Soda water" },
+        new Ingredient { Name = "Tomato juice" },
+        new Ingredient { Name = "Lemon juice" },
+        new Ingredient { Name = "Worcestershire sauce"},
+        new Ingredient { Name = "Tabasco"},
+        // Add more ingredients...
+    };
 
             // Initialize the list of available drinks
             AvailableDrinks = new ObservableCollection<Drink>();
@@ -58,6 +72,8 @@ namespace DrinkingApp.ViewModels
                 RecalculateAvailableDrinks();
             }
         }
+
+
 
         private void RecalculateAvailableDrinks()
         {
