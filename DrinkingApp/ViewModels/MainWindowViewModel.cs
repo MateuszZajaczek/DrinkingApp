@@ -16,29 +16,50 @@ namespace DrinkingApp.ViewModels
         public ObservableCollection<Ingredient> Ingredients { get; }
         public ObservableCollection<Drink> AvailableDrinks { get; }
 
-        
-
         private bool _showIngredients;
-
         public bool ShowIngredients
         {
             get { return _showIngredients; }
             set { this.RaiseAndSetIfChanged(ref _showIngredients, value); }
         }
 
-        public ReactiveCommand<Unit, bool> ShowIngredientsCommand { get; }
+        private bool _showWelcome;
+        public bool ShowWelcome
+        {
+            get { return _showWelcome; }
+            set { this.RaiseAndSetIfChanged(ref _showWelcome, value); }
+        }
 
+        public ReactiveCommand<Unit, Unit> ShowIngredientsCommand { get; }
+
+        private Drink _selectedDrink;
+        public Drink SelectedDrink
+        {
+            get { return _selectedDrink; }
+            set
+            {
+                _selectedDrink = value;
+                this.RaisePropertyChanged(nameof(SelectedDrink));
+            }
+        }
 
         public MainWindowViewModel()
         {
-           
+            ShowWelcome = true;
 
-            ShowIngredientsCommand = ReactiveCommand.Create(() => ShowIngredients = !ShowIngredients);
+            ShowIngredientsCommand = ReactiveCommand.Create(() =>
+            {
+                ShowIngredients = !ShowIngredients;
+                if (ShowIngredients)
+                {
+                    ShowWelcome = false;
+                }
+            });
 
             var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
 
             Ingredients = new ObservableCollection<Ingredient>
-    {
+            {
         new Ingredient { Name = "Vodka", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Wyborowa.jpg"))) },
         new Ingredient { Name = "Rum", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/rum.jpg"))) },
         new Ingredient { Name = "Mint", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Mint.png"))) },
@@ -52,24 +73,11 @@ namespace DrinkingApp.ViewModels
         // Add more ingredients...
     };
 
-            // Initialize the list of available drinks
             AvailableDrinks = new ObservableCollection<Drink>();
 
-            // Subscribe to property changed events for each ingredient
             foreach (var ingredient in Ingredients)
             {
                 ingredient.PropertyChanged += Ingredient_PropertyChanged;
-            }
-        }
-
-        private Drink _selectedDrink;
-        public Drink SelectedDrink
-        {
-            get { return _selectedDrink; }
-            set
-            {
-                _selectedDrink = value;
-                this.RaisePropertyChanged(nameof(SelectedDrink));
             }
         }
 
@@ -77,29 +85,20 @@ namespace DrinkingApp.ViewModels
         {
             if (e.PropertyName == nameof(Ingredient.IsChecked))
             {
-                // Recalculate the available drinks whenever an ingredient's IsChecked property changes
                 RecalculateAvailableDrinks();
             }
         }
 
-        
-
-
-
         private void RecalculateAvailableDrinks()
         {
-            // Clear the current list of available drinks
             AvailableDrinks.Clear();
 
-            // Get the list of selected ingredients
             var selectedIngredients = Ingredients.Where(i => i.IsChecked).ToList();
 
-            // Check which drinks can be made with the selected ingredients
             foreach (var drink in AllDrinks)
             {
                 if (drink.Ingredients.All(i => selectedIngredients.Any(si => si.Name == i)))
                 {
-                    // If all of the drink's ingredients are selected, add it to the available drinks
                     AvailableDrinks.Add(drink);
                 }
             }

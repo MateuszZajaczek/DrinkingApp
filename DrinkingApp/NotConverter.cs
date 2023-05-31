@@ -20,4 +20,6 @@ namespace DrinkingApp.Converters // Zamieñ na rzeczywist¹ przestrzeñ nazw
             return value;
         }
     }
+
+
 }

@@ -1,12 +1,16 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:DrinkingApp"
+        xmlns:vm="clr-namespace:DrinkingApp.ViewModels;assembly=DrinkingApp"
         x:Class="DrinkingApp.Views.MainWindow"
         Title="DrinkingApp"
-		Width="1200"
-		Height="800"
+		Width="1300"
+		Height="900"
 		CanResize="False">
 
+	<Window.DataContext>
+		<vm:MainWindowViewModel />
+	</Window.DataContext>
 
 	<Grid RowDefinitions="Auto, *, 0.04*">
 		<!--Title bar-->
@@ -28,14 +32,21 @@
 				<Button>
 					<Image Source="/Assets/Lupa.png" Height="50" Width="60"/>
 				</Button>
-			
+
 			</StackPanel>
 
 			<!-- Main content Window-->
 			<Grid Grid.Column="1" Background="#8a919e">
+				<Grid>
+					<TextBlock x:Name="WelcomeText1" Text="Welcome to DrinkingApp!" TextWrapping="Wrap" HorizontalAlignment="Center" FontFamily="Pacifico" FontStyle="Italic" VerticalAlignment="Top" FontSize="40" Margin="0,20,0,0" IsVisible="{Binding ShowWelcome}" />
+					<TextBlock x:Name="WelcomeText2" Text="Click the book to start." TextWrapping="Wrap" HorizontalAlignment="Center" FontFamily="Pacifico" VerticalAlignment="Top" FontSize="40" FontStyle="Italic" IsVisible="{Binding ShowWelcome}" Margin="0,150,0,0" />
+				</Grid>
+
+
 				<ScrollViewer>
-					<DockPanel x:Name="MainContent" IsVisible="{Binding ShowIngredients}">
-						<ScrollViewer DockPanel.Dock="Top">
+					<StackPanel x:Name="MainContent" IsVisible="{Binding ShowIngredients}">
+						<Image Source="/Assets/IngrText.png" Width="500" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+						<ScrollViewer>
 							<ItemsControl Items="{Binding Ingredients}">
 								<ItemsControl.ItemsPanel>
 									<ItemsPanelTemplate>
@@ -52,8 +63,9 @@
 								</ItemsControl.ItemTemplate>
 							</ItemsControl>
 						</ScrollViewer>
+						<Image Source="/Assets/DrinkText.png" Margin="0,50,0,50" VerticalAlignment="Top" Width="500" Height="80"/>
+						<ScrollViewer>
 
-						<ScrollViewer DockPanel.Dock="Bottom">
 							<ListBox Items="{Binding AvailableDrinks}" SelectedItem="{Binding SelectedDrink}">
 								<ListBox.ItemTemplate>
 									<DataTemplate>
@@ -62,9 +74,9 @@
 								</ListBox.ItemTemplate>
 							</ListBox>
 						</ScrollViewer>
-						<TextBlock Text="{Binding SelectedDrink.Description}" DockPanel.Dock="Bottom" FontFamily="Monaco" FontSize="14" FontStyle="Italic"/>
+						<TextBlock Text="{Binding SelectedDrink.Description}" VerticalAlignment="Bottom" FontFamily="Monaco" FontSize="22" FontStyle="Italic"/>
 
-					</DockPanel>
+					</StackPanel>
 				</ScrollViewer>
 			</Grid>
 		</Grid>
@@ -73,8 +85,9 @@
 		<Grid Grid.Row="2" Background="Black">
 
 			<TextBlock Background="Transparent" Foreground="White" FontStyle="Italic" VerticalAlignment="Top" HorizontalAlignment="Right" >
-				Mateusz Zajączek nr.Albumu 59571</TextBlock>
-		
+				Mateusz Zajączek nr.Albumu 59571
+			</TextBlock>
+
 		</Grid>
 	</Grid>
 </Window>

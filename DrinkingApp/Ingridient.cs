@@ -26,6 +26,7 @@ namespace DrinkingApp
             }
         }
 
+
         public IBitmap Image { get; set; }
 
 
