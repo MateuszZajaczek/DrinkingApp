@@ -2,58 +2,79 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:DrinkingApp"
         x:Class="DrinkingApp.Views.MainWindow"
-        Title="DrinkingApp">
+        Title="DrinkingApp"
+		Width="1200"
+		Height="800"
+		CanResize="False">
+
 
 	<Grid RowDefinitions="Auto, *, 0.04*">
 		<!--Title bar-->
-		<Grid Grid.Row="0" Background="#2b4141" Height="50" ColumnDefinitions="Auto, *, Auto">
-			<!-- ... -->
+		<Grid Grid.Row="0" Background="#2b4141" Height="65" ColumnDefinitions="Auto, *, Auto">
+			<Image Grid.Column="0" Source="/Assets/IceWater.png" Height="65" Width="65" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+			<Image Grid.Column="1" Source="/Assets/Title.png" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+			<Image Grid.Column="2" Source="/Assets/drink.png" HorizontalAlignment="Right" VerticalAlignment="Top"/>
 		</Grid>
 
 		<!--Main section-->
 		<Grid Grid.Row="1" ColumnDefinitions="Auto, *">
-
 			<!--Menu on left -->
 			<StackPanel Grid.Column="0" Background="Gray" HorizontalAlignment="Left">
 				<Button Command="{Binding ShowIngredientsCommand}">
 					<Image Source="C:\Users\Mateusz\Desktop\Github\DrinkBook\DrinkBook\Assets\Book.png" Height="50" VerticalAlignment="Top" Width="60"/>
 				</Button>
+				<Button>
+					<Image Source="/Assets/Lupa.png" Height="50" Width="60"/>
+				</Button>
+			
 			</StackPanel>
 
 			<!-- Main content Window-->
-			<StackPanel Grid.Column="1" Background="#8a919e">
-				<DockPanel x:Name="MainContent" IsVisible="{Binding ShowIngredients}">
-					<ScrollViewer DockPanel.Dock="Top">
-						<StackPanel>
+			<Grid Grid.Column="1" Background="#8a919e">
+				<ScrollViewer>
+					<DockPanel x:Name="MainContent" IsVisible="{Binding ShowIngredients}">
+						<ScrollViewer DockPanel.Dock="Top">
 							<ItemsControl Items="{Binding Ingredients}">
+								<ItemsControl.ItemsPanel>
+									<ItemsPanelTemplate>
+										<WrapPanel Orientation="Horizontal" />
+									</ItemsPanelTemplate>
+								</ItemsControl.ItemsPanel>
 								<ItemsControl.ItemTemplate>
 									<DataTemplate>
-										<StackPanel Orientation="Horizontal">
+										<StackPanel Orientation="Horizontal" Margin="10">
 											<Image Source="{Binding Image}" Width="50" Height="50"/>
 											<CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked, Mode=TwoWay}"/>
 										</StackPanel>
 									</DataTemplate>
 								</ItemsControl.ItemTemplate>
 							</ItemsControl>
+						</ScrollViewer>
 
-						</StackPanel>
-					</ScrollViewer>
-					<ListBox Items="{Binding AvailableDrinks}" SelectedItem="{Binding SelectedDrink}">
-						<ListBox.ItemTemplate>
-							<DataTemplate>
-								<TextBlock Text="{Binding Name}" />
-							</DataTemplate>
-						</ListBox.ItemTemplate>
-					</ListBox>
+						<ScrollViewer DockPanel.Dock="Bottom">
+							<ListBox Items="{Binding AvailableDrinks}" SelectedItem="{Binding SelectedDrink}">
+								<ListBox.ItemTemplate>
+									<DataTemplate>
+										<TextBlock Text="{Binding Name}" />
+									</DataTemplate>
+								</ListBox.ItemTemplate>
+							</ListBox>
+						</ScrollViewer>
+						<TextBlock Text="{Binding SelectedDrink.Description}" DockPanel.Dock="Bottom" FontFamily="Monaco" FontSize="14" FontStyle="Italic"/>
 
-					<TextBlock Text="{Binding SelectedDrink.Description}" />
-				</DockPanel>
-			</StackPanel>
+					</DockPanel>
+				</ScrollViewer>
+			</Grid>
 		</Grid>
 
 		<!--Bottom-->
 		<Grid Grid.Row="2" Background="Black">
-			<!-- ... -->
+
+			<TextBlock Background="Transparent" Foreground="White" FontStyle="Italic" VerticalAlignment="Top" HorizontalAlignment="Right" >
+				Mateusz Zajączek nr.Albumu 59571</TextBlock>
+		
 		</Grid>
 	</Grid>
 </Window>
