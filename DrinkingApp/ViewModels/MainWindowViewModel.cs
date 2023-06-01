@@ -61,15 +61,16 @@ namespace DrinkingApp.ViewModels
             Ingredients = new ObservableCollection<Ingredient>
             {
         new Ingredient { Name = "Vodka", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Wyborowa.jpg"))) },
-        new Ingredient { Name = "Rum", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/rum.jpg"))) },
+        new Ingredient { Name = "Rum", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/rum.png"))) },
         new Ingredient { Name = "Mint", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Mint.png"))) },
         new Ingredient { Name = "Sugar", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Sugar.png"))) },
         new Ingredient { Name = "Lime juice", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Limonka.png")))},
         new Ingredient { Name = "Soda water" , Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Soda.png")))},
-        new Ingredient { Name = "Tomato juice" },
+        new Ingredient { Name = "Tomato juice", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/tomato.png"))) },
         new Ingredient { Name = "Lemon juice", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Cytryna.png"))) },
-        new Ingredient { Name = "Worcestershire sauce"},
+        new Ingredient { Name = "Worcestershire sauce", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/sauce.png")))},
         new Ingredient { Name = "Tabasco", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/Tabasco.png")))},
+        new Ingredient { Name = "Raspberry syrup", Image = new Bitmap(assets.Open(new Uri("avares://DrinkingApp/Assets/raspberry.png")))},
         // Add more ingredients...
     };
 
@@ -108,6 +109,7 @@ namespace DrinkingApp.ViewModels
         {
     new Drink { Name = "Mojito", Ingredients = new List<string> { "Rum", "Mint", "Sugar", "Lime juice", "Soda water" }, Description = "MOJITOS - are bubbly rum cocktails that taste minty-fresh, citrusy and a little sweet."},
     new Drink { Name = "Bloody Mary", Ingredients = new List<string> { "Vodka", "Tomato juice", "Lemon juice", "Worcestershire sauce", "Tabasco" }, Description = "BLOODY MARY - It's spicy, salty, and overall a savory flavor. It reminds me of vegetable soup and salsa, all rolled into one." },
+    new Drink { Name = "Mad dog", Ingredients = new List<string> { "Vodka", "Tabasco", "Raspberry syrup"}, Description = "MAD DOG - is a Polish alcoholic drink consisting of a 1 cl shot of vodka, a shot of raspberry."}
     // Add more drinks...
 };
 
