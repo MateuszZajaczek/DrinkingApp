@@ -2,7 +2,7 @@ using System;
 using System.Globalization;
 using Avalonia.Data.Converters;
 
-namespace DrinkingApp.Converters // Zamieñ na rzeczywist¹ przestrzeñ nazw
+namespace DrinkingApp.Converters 
 {
     public class NotConverter : IValueConverter
     {
